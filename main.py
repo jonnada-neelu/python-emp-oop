@@ -1,64 +1,6 @@
 # Main file
 from abc import ABC, abstractmethod
 
-class Employee(ABC):
-    def __init__(self, employee_id, name, department):
-        self._employee_id = employee_id  
-        self._name = name  
-        self._department = department  
-
-    @abstractmethod
-    def calculate_salary(self):
-        pass
-    
-    def display_details(self):
-        print("--- Employee Details ---")
-        print(f"Employee ID: {self._employee_id}")
-        print(f"Name: {self._name}")
-        print(f"Department: {self._department}")
-
-class PermanentEmployees(Employee):
-    def __init__(self, employee_id, name, department, basic_salary, bonus):
-        super().__init__(employee_id, name, department)
-        self._basic_salary = basic_salary
-        self._bonus = bonus
-    
-    def calculate_salary(self):
-        return self._basic_salary + self._bonus
-    
-    def display_details(self):
-        super().display_details()
-        print(f"Basic Salary: ${self._basic_salary:.2f}")
-        print(f"Bonus: ${self._bonus:.2f}")
-        print(f"Total Salary: ${self.calculate_salary():.2f}\n")
-
-class ContractEmployees(Employee):
-    def __init__(self, employee_id, name, department, hourly_rate, hours_worked):
-        super().__init__(employee_id, name, department)
-        self._hourly_rate = hourly_rate
-        self._hours_worked = hours_worked
-    
-    def calculate_salary(self):
-        return self._hourly_rate * self._hours_worked
-    
-    def display_details(self):
-        super().display_details()
-        print(f"Hourly Rate: ${self._hourly_rate:.2f}")
-        print(f"Hours Worked: {self._hours_worked}")
-        print(f"Total Salary: ${self.calculate_salary():.2f}\n")
-
-class Intern(Employee):
-    def __init__(self, employee_id, name, department, stipend):
-        super().__init__(employee_id, name, department)
-        self._stipend = stipend
-    
-    def calculate_salary(self):
-        return self._stipend
-    
-    def display_details(self):
-        super().display_details()
-        print(f"Stipend: ${self._stipend:.2f}")
-        print(f"Total Salary: ${self.calculate_salary():.2f}\n")
 
 if __name__ == "__main__":
     emp1 = PermanentEmployees("101", "Amar", "IT", 70000, 3000)
