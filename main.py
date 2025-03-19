@@ -1,5 +1,5 @@
 # Main file
-from abc import ABC, abstractmethod
+from hr import ABC, abstractmethod
 
 
 if __name__ == "__main__":
